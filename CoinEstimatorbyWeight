@@ -1,0 +1,49 @@
+dime_weight = int(input('How much do all your dimes weigh in grams? '))
+nickel_weight = int(input('How much do all your nickels weigh in grams? '))
+quarter_weight = int(input('How much do all your quarters weigh grams? '))
+penny_weight  = int(input('How much do all your pennies weigh in grams? '))
+                          
+dime_count = round(dime_weight / 2.268)
+nickel_count = round(nickel_weight / 5)
+quarter_count = round(quarter_weight / 5.670)
+penny_count = round(penny_weight / 2.500)
+
+print('you have ' + str(dime_count) + ' dimes')
+print('you have ' + str(nickel_count) + ' nickels')
+print('you have ' + str(quarter_count) + ' quarters')
+print('you have ' + str(penny_count) + ' pennies')
+
+#if there are 0 of a coin, set wrapper to 0. If a coin count is greater than 0, evaluate wrappers needed.
+#If the total number of coins won't  fill 1 wrapper, set wrapper to 1
+if dime_count ==  0:
+    dime_wrapper = 0
+elif dime_count > 0:
+        dime_wrapper = round(dime_count / 50)
+        if dime_wrapper < 1:
+            dime_wrapper = 1
+if nickel_count ==  0:
+    nickel_wrapper = 0
+elif nickel_count > 0:
+        nickel_wrapper = round(nickel_count / 40)
+        if nickel_wrapper < 1:
+            nickel_wrapper = 1
+if quarter_count ==  0:
+    quarter_wrapper = 0
+elif quarter_count > 0:
+        quarter_wrapper = round(quarter_count / 40)
+        if quarter_wrapper < 1:
+            quarter_wrapper = 1
+if penny_count ==  0:
+    penny_wrapper = 0
+elif penny_count > 0:
+        penny_wrapper =  round(penny_count / 50)
+        if penny_wrapper < 1:
+            penny_wrapper = 1
+
+print('You need ' + str(dime_wrapper) + ' wrappers for your dimes')
+print('You need ' + str(nickel_wrapper) + ' wrappers for your nickels')
+print('You need ' + str(quarter_wrapper) + ' wrappers for your quarters')
+print('You need ' + str(penny_wrapper) + ' wrappers for your pennies')
+
+total_value = (dime_count * .10) + (nickel_count * .05) + (quarter_count * .25) + (penny_count * .01)
+print('You have ' + str(total_value) + ' dollars worth of coins.')
